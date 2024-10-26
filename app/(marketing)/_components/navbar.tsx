@@ -16,11 +16,11 @@ export const Navbar = () => {
 
     return (
         <div className={cn(
-            "z-50 bg-background dark:bg-[#262525] fixed top-0 flex items-center w-full p-6",
+            "z-50 bg-background dark:bg-[#262525] fixed top-0 flex items-center w-full p-6 transition-all duration-300",
             scrolled && "border-b shadow-md"
         )}>
             <Logo />
-            <div className="md:ml-auto md:justify-end justify-between w-full flex items-center gap-x-2">
+            <div className="md:ml-auto md:justify-end justify-between w-full flex items-center gap-x-4">
                 
                 {isLoading && (
                     <Spinner /> 
@@ -28,31 +28,27 @@ export const Navbar = () => {
                 {!isAuthenticated && !isLoading && (
                     <>
                         <SignInButton mode="modal">
-                            <Button variant="ghost" size="sm">
+                            <Button variant="ghost" size="sm" className="hover:bg-gray-200 dark:hover:bg-gray-700">
                                 Log in
                             </Button>
-
                         </SignInButton>
                         <SignInButton mode="modal">
-                            <Button size="sm">
+                            <Button size="sm" className="bg-blue-500 text-white hover:bg-blue-600">
                                 Get IdeaLab free
                             </Button>
-
                         </SignInButton>
                     </>
                 )}
                 {isAuthenticated && !isLoading && (
                     <>
-                        <Button variant="ghost" size="sm" asChild>
+                        <Button variant="ghost" size="sm" asChild className="hover:bg-gray-200 dark:hover:bg-gray-700">
                             <Link href="/documents">
                                 Enter IdeaLab
                             </Link>
-
                         </Button>
                         <UserButton 
                             afterSignOutUrl="/"
                         />
-                    
                     </>
                 )}
                 <ModeToggle />

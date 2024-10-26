@@ -18,7 +18,7 @@ export const Logo = () => {
                 width="80"
                 alt="Logo"
             />
-            <p className={cn("font-semibold", font.className)}>
+            <p className={cn("font-semibold text-lg", font.className)}>
                 IdeaLab
             </p>
 
